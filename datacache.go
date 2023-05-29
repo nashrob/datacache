@@ -1635,7 +1635,7 @@ Return value:
 Additional note: NA
 **************************************************************************** */
 func Create(loadFunc LoadFunc, iteratorFunc RecHandlerFunc) *DataCache {
-	fmt.Println("nashrob2000:datacache")
+	fmt.Println("nashrob2000:datacache v1.0.3")
 	pDataCache := &DataCache{
 		cache:        make(CacheStore),
 		loadfn:       loadFunc,
