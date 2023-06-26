@@ -149,17 +149,17 @@ func (pRec *Rec) RecUnlock() {
 	}()
 
 	if pRec != nil {
-		fmt.Println("Attempting to unlock record.")
+		//fmt.Println("Attempting to unlock record.")
 		if pRec.pRecLock != nil {
 			pRec.pUnlockRecLock.Lock()
 			state := reflect.ValueOf(pRec.pRecLock).Elem().FieldByName("state")
 			isLocked := (state.Int() & mutexLocked) == mutexLocked
-			msg := "Record is already in unlocked state."
+			// msg := "Record is already in unlocked state."
 			if isLocked {
 				pRec.pRecLock.Unlock()
-				msg = "Record has been unlocked."
+				// msg = "Record has been unlocked."
 			}
-			fmt.Println(msg)
+			//fmt.Println(msg)
 			pRec.pUnlockRecLock.Unlock()
 		}
 		pRec = nil
